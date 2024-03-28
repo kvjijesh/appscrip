@@ -58,12 +58,12 @@ const Products = () => {
                         )}
 
                     </div>
-                    <div className="md:hidden">FILTER</div>
+                    <div className="md:hidden pt-2 pb-2">FILTER</div>
                     <div>
                         <div className="w-48 flex">
                             <select
                                 id="dropdown"
-                                className="appearance-none w-full  border-gray-400 hover:border-gray-500  py-2 rounded  leading-tight focus:outline-none focus:shadow-outline"
+                                className="appearance-none w-full  border-gray-400 hover:border-gray-500 pb-2  py-2 rounded  leading-tight focus:outline-none focus:shadow-outline"
                             >
                                 <option >RECOMENDED</option>
                                 <option >NEWST FIRST</option>

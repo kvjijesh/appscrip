@@ -1,6 +1,21 @@
 import { FaInstagram } from "react-icons/fa6";
+import { FaAngleDown } from "react-icons/fa";
+import { FaAngleUp } from "react-icons/fa";
 import { IoLogoLinkedin } from "react-icons/io5";
+import { useState } from "react";
 const Footer = () => {
+    const [museTogle, setMuseTogle] = useState(false)
+    const [quicklinks, setQuicklinks] = useState(false)
+    const [follow,setFollow]=useState(false)
+    const handleMuseTogle = () => {
+        setMuseTogle(!museTogle)
+    }
+    const handlequicklinks = () => {
+        setQuicklinks(!quicklinks)
+    }
+    const handleFollowTogle=()=>{
+            setFollow(!follow)
+    }
     return (
         <div className='w-full bg-black md:h-[750px]'>
             <div className='w-[90%] mx-auto flex flex-wrap mt-[79px]'>
@@ -16,9 +31,10 @@ const Footer = () => {
                         <button className="md:w-[184px] w-[109px] h-[48px] border-[1.14px] rounded-md text-[18px] font-sans text-white">SUSCRIBE</button>
                     </div>
                 </div>
+                <hr className="md:hidden text-white w-full my-3" />
                 <div className="md:w-[40%] flex flex-col gap-5">
                     <div>
-                        <h2 className="text-[20px] font-bold text-white mt-[79px]">CONTACT US</h2>
+                        <h2 className="text-[20px] font-bold text-white md:mt-[70px]">CONTACT US</h2>
                     </div>
                     <div>
                         <p className="text-[12px] text-white font-normal">+44 221 133 5360</p>
@@ -26,6 +42,7 @@ const Footer = () => {
                     <div>
                         <p className="text-[16px] text-white font-normal">customercare@mettamuse.com</p>
                     </div>
+                    <hr className="md:hidden w-full text-white" />
                     <div>
                         <h2 className="text-[20px] font-bold text-white">CURRENCY</h2>
                     </div>
@@ -53,13 +70,14 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <hr className="max-w-[90%] mx-auto my-3" />
+            <hr className="max-w-[90%] mx-auto mt-5 mb-5" />
             <div className="w-[90%] mx-auto flex flex-wrap">
                 <div className="md:w-[30%] w-full flex flex-col gap-3">
-                    <div>
-                        <h2 className="text-[24px] text-white font-bold">mettā muse</h2>
+                    <div className="flex md:block justify-between items-center">
+                        <h2 className="text-[24px] text-white font-bold md:mb-1 mb-5">mettā muse</h2>
+                        {museTogle?(<FaAngleUp onClick={handleMuseTogle} className="text-white md:hidden" />):(<FaAngleDown onClick={handleMuseTogle} className="text-white md:hidden" />)}
                     </div>
-                    <ul >
+                    <ul className="hidden md:block">
                         <li className="py-2">
                             <h2 className="text-[18px] text-white font-normal">About Us</h2>
                         </li>
@@ -80,12 +98,39 @@ const Footer = () => {
                         </li>
                     </ul>
 
+
+                    {museTogle && (
+                        <ul >
+                            <li className="py-2">
+                                <h2 className="text-[18px] text-white font-normal">About Us</h2>
+                            </li>
+                            <li className="py-2">
+                                <h2 className="text-[18px] text-white font-normal">Stories</h2>
+                            </li>
+                            <li className="py-2">
+                                <h2 className="text-[18px] text-white font-normal">Artisans</h2>
+                            </li >
+                            <li className="py-2">
+                                <h2 className="text-[18px] text-white font-normal">Boutiques</h2>
+                            </li>
+                            <li className="py-2">
+                                <h2 className="text-[18px] text-white font-normal">Contact Us</h2>
+                            </li>
+                            <li className="py-2">
+                                <h2 className="text-[18px] text-white font-normal">EU Compliances Docs</h2>
+                            </li>
+                        </ul>
+                    )}
+
                 </div>
+                <hr className="w-full mx-auto py-2  text-white md:hidden" />
+
                 <div className="md:w-[30%] w-full flex flex-col gap-3">
-                    <div>
-                        <h2 className="text-[20px] text-white font-bold">QUICK LINKS</h2>
+                    <div className="flex md:block justify-between items-center">
+                        <h2 className="text-[20px] text-white font-bold md:mb-1 mb-5">QUICK LINKS</h2>
+                        {quicklinks?(<FaAngleUp onClick={handlequicklinks} className="text-white md:hidden" />):(<FaAngleDown onClick={handlequicklinks} className="text-white md:hidden" />)}
                     </div>
-                    <ul >
+                    <ul className="hidden md:block" >
                         <li className="py-2">
                             <h2 className="text-[18px] text-white font-normal">Orders & Shipping</h2>
                         </li>
@@ -108,20 +153,55 @@ const Footer = () => {
                             <h2 className="text-[18px] text-white font-normal">Terms & Conditions</h2>
                         </li>
                     </ul>
+
+                    {quicklinks && (
+                        <ul >
+                            <li className="py-2">
+                                <h2 className="text-[18px] text-white font-normal">Orders & Shipping</h2>
+                            </li>
+                            <li className="py-2">
+                                <h2 className="text-[18px] text-white font-normal">Join/Login as a Seller</h2>
+                            </li>
+                            <li className="py-2">
+                                <h2 className="text-[18px] text-white font-normal">Payment & Pricing</h2>
+                            </li >
+                            <li className="py-2">
+                                <h2 className="text-[18px] text-white font-normal">Return & Refunds</h2>
+                            </li>
+                            <li className="py-2">
+                                <h2 className="text-[18px] text-white font-normal">FAQs</h2>
+                            </li>
+                            <li className="py-2">
+                                <h2 className="text-[18px] text-white font-normal">Privacy Policy</h2>
+                            </li>
+                            <li className="py-2">
+                                <h2 className="text-[18px] text-white font-normal">Terms & Conditions</h2>
+                            </li>
+                        </ul>
+
+                    )}
                 </div>
+                <hr className="w-full mx-auto p-3  text-white md:hidden" />
                 <div className="md:w-[40%] w-full flex flex-col">
-                    <div>
-                        <h2 className="text-[20px] text-white font-bold">FOLLOW US</h2>
+                      <div className="flex md:block justify-between items-center">
+                        <h2 className="text-[20px] text-white font-bold md:mb-1">FOLLOW US</h2>
+                        {follow?(<FaAngleUp onClick={handleFollowTogle} className="text-white md:hidden"/>):(<FaAngleDown onClick={handleFollowTogle} className="text-white md:hidden"/>)}
                     </div>
+                    <div className="hidden md:flex gap-3 mt-3">
+                        <div className="flex items-center justify-center text-white h-[32px] w-[32px] border-2 rounded-[100%]"><FaInstagram /></div>
+                        <div className="flex items-center justify-center text-white h-[32px] w-[32px] border-2 rounded-[100%]"><IoLogoLinkedin /></div>
+                    </div>
+                    {follow && (
                     <div className="flex gap-3 mt-3">
                         <div className="flex items-center justify-center text-white h-[32px] w-[32px] border-2 rounded-[100%]"><FaInstagram /></div>
                         <div className="flex items-center justify-center text-white h-[32px] w-[32px] border-2 rounded-[100%]"><IoLogoLinkedin /></div>
                     </div>
+)}
                     <div>
                         <h2 className="text-white text-[20px] text-bold mt-10">mettā muse Accepts</h2>
                     </div>
-                    <div className="hidden md:mt-2">
-                        <svg width="376" height="35" viewBox="0 0 376 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <div className="md:mt-2 ">
+                        <svg className="w-64 h-[35px]" viewBox="0 0 376 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect x="0.5" y="0.5" width="55" height="34" rx="4.5" fill="white" stroke="#FFF2F5" />
                             <path d="M26.6248 17.6346V22.2179H25.1667V10.9028H29.021C29.4829 10.895 29.9417 10.9786 30.3711 11.1487C30.8005 11.3188 31.1921 11.5721 31.5233 11.894C31.837 12.1867 32.0899 12.5385 32.2677 12.929C32.4454 13.3196 32.5444 13.7413 32.559 14.1702C32.5736 14.599 32.5036 15.0266 32.3529 15.4283C32.2022 15.8301 31.9738 16.1982 31.6808 16.5117L31.5233 16.6778C30.8501 17.3181 29.9506 17.6661 29.021 17.6432L26.6248 17.6346ZM26.6248 12.2893V16.2825H29.0569C29.5968 16.2997 30.1182 16.0892 30.4963 15.7039C30.7668 15.422 30.9484 15.0667 31.0186 14.6824C31.0887 14.2981 31.0444 13.9016 30.891 13.5423C30.7376 13.183 30.4819 12.8767 30.1558 12.6616C29.8297 12.4464 29.4475 12.3319 29.0569 12.3323L26.6248 12.2893ZM35.9118 14.22C36.8428 14.1771 37.7537 14.4893 38.4584 15.098C39.0958 15.7139 39.4352 16.5733 39.3894 17.4599V22.2351H38.0015V21.138H37.9313C37.6824 21.5495 37.3305 21.8889 36.9102 22.1228C36.49 22.3566 36.016 22.4768 35.5351 22.4714C34.7501 22.4969 33.9845 22.2241 33.3924 21.708C33.1119 21.4792 32.887 21.1895 32.7349 20.861C32.5828 20.5325 32.5074 20.1736 32.5144 19.8117C32.4979 19.4459 32.5689 19.0814 32.7216 18.7486C32.8743 18.4157 33.1043 18.1242 33.3924 17.8981C34.0991 17.3899 34.9545 17.1305 35.8244 17.1605C36.5649 17.1319 37.2997 17.2937 37.9585 17.6346V17.3367C37.9634 17.0904 37.9121 16.8462 37.8086 16.6226C37.7052 16.399 37.5522 16.2019 37.3613 16.0462C36.9779 15.6977 36.4757 15.5091 35.9576 15.5191C35.5814 15.5156 35.2105 15.608 34.8799 15.7877C34.5494 15.9674 34.2701 16.2284 34.0684 16.5461L32.7865 15.7382C33.1346 15.2395 33.6045 14.8382 34.1516 14.5724C34.6986 14.3067 35.3046 14.1854 35.9118 14.22ZM34.0684 19.8461C34.065 20.0316 34.1072 20.2151 34.1914 20.3804C34.2756 20.5458 34.3991 20.6879 34.5511 20.7942C34.8705 21.0463 35.2673 21.1795 35.6755 21.1709C36.2899 21.1695 36.8786 20.9274 37.3169 20.4949C37.7537 20.0852 38.0015 19.5138 38.0015 18.9151C37.4501 18.5231 36.7801 18.3338 36.1052 18.3794C35.5811 18.3587 35.0641 18.5063 34.6299 18.8005C34.4579 18.9155 34.3168 19.071 34.2189 19.2533C34.121 19.4356 34.0694 19.6391 34.0684 19.8461ZM47.3687 14.475L42.5132 25.6325H41.0122L42.847 21.7252L39.6615 14.475H41.2414L43.5502 20.0394L45.7975 14.475H47.3687Z" fill="#5F6368" />
                             <path d="M20.742 16.6458C20.742 16.2047 20.7076 15.7635 20.6375 15.3281H14.4929V17.8303H18.0035C17.932 18.228 17.781 18.6071 17.5595 18.9451C17.338 19.283 17.0505 19.5727 16.7144 19.7969V21.4211H18.8113C19.4489 20.8042 19.9501 20.0605 20.2826 19.238C20.6152 18.4155 20.7717 17.5325 20.742 16.6458Z" fill="#4285F4" />

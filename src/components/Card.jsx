@@ -2,7 +2,7 @@ import { CiHeart } from "react-icons/ci";
 const Card = (product) => {
 
     return (
-        <div className="flex flex-col md:w-[300px] md:h-auto w-[168px] h-auto border-2 rounded-lg p-2 ">
+        <div className="flex flex-col md:w-[300px] md:h-auto w-[168px] h-auto border-2 rounded-lg p-2 shadow-md ">
             <div className="w-full h-full p-2" >
                 <img className="w-ful h-full object-contain " src={product.data.image} alt="productImage" />
             </div>

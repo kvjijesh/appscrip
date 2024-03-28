@@ -1,9 +1,9 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { FaAngleLeft } from "react-icons/fa";
 import { FaAngleRight } from "react-icons/fa";
 import { FaAngleDown } from "react-icons/fa";
 import Card from "./Card";
+import { fetchProducts } from "../utils/api";
 const Products = () => {
     const [products, setProducts] = useState([])
     const [hidefilter, setHidefilter] = useState(true);
@@ -29,14 +29,14 @@ const Products = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const data = await axios.get('https://fakestoreapi.com/products')
-                setProducts(data.data)
+                const data = await fetchProducts();
+                setProducts(data);
             } catch (error) {
                 console.log(error);
             }
-        }
-        fetchData()
-    }, [])
+        };
+        fetchData();
+    }, []);
     return (
         <>
             <div className="w-full">

@@ -29,7 +29,7 @@ const Products = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const data = await axios.get('https:/fakestoreapi.com/products')
+                const data = await axios.get('https://fakestoreapi.com/products')
                 setProducts(data.data)
             } catch (error) {
                 console.log(error);
